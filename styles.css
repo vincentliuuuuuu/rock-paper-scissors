@@ -1,0 +1,54 @@
+body {
+  background-color: lightgray;
+}
+
+h1 {
+  font-family: fantasy;
+  text-align: center;
+  display: inline;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  margin: 2% 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin: 2% 0;
+}
+
+.choice-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.rock-btn,
+.paper-btn,
+.scissors-btn {
+  font-size: 5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  color: #3D3D3D;
+  background: lightblue;
+  border-color: black;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.reset {
+  justify-content: right;
+  margin-top: 0.5%;
+}
