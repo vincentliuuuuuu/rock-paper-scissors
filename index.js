@@ -1,29 +1,29 @@
 const Choices = Object.freeze({
   ROCK: 0,
   PAPER: 1,
-  SCISSORS: 2,
-})
+  SCISSORS: 2
+});
 
 const Results = Object.freeze({
   PLAYERWIN: 1,
   TIE: 0,
-  PLAYERLOSE: -1,
-})
+  PLAYERLOSE: -1
+});
 
 const getComputerChoice = () => Math.floor(Math.random() * 3);
 
 const getPlayerChoice = () => {
   let result = -1;
-  
+
   while (result < 0) {
-    const playerChoice = prompt("Please enter your choice of rock, paper, or scissors.");
+    const playerChoice = prompt('Please enter your choice of rock, paper, or scissors.');
     result = parseUserInput(playerChoice);
     if (result < 0) {
-      alert("Not a valid choice. Try again!")
+      alert('Not a valid choice. Try again!');
     }
   }
   return result;
-}
+};
 
 const parseUserInput = (userInput) => {
   const lowerUserInput = userInput.toLowerCase();
@@ -42,15 +42,15 @@ const parseUserInput = (userInput) => {
 const playSingleRound = () => {
   const computerSelection = getComputerChoice();
   const playerSelection = getPlayerChoice();
-  //console.log(`Player: ${playerSelection} Computer: ${computerSelection}`);
-  
+  // console.log(`Player: ${playerSelection} Computer: ${computerSelection}`);
+
   if (playerSelection === computerSelection) {
     return Results.TIE;
   }
-  
-  if (playerSelection === Choices.ROCK && computerSelection === Choices.SCISSORS ||
-      playerSelection === Choices.PAPER && computerSelection === Choices.ROCK ||
-      playerSelection === Choices.SCISSORS && computerSelection === Choices.PAPER) {
+
+  if ((playerSelection === Choices.ROCK && computerSelection) === Choices.SCISSORS ||
+      (playerSelection === Choices.PAPER && computerSelection) === Choices.ROCK ||
+      (playerSelection === Choices.SCISSORS && computerSelection) === Choices.PAPER) {
     return Results.PLAYERWIN;
   }
 
@@ -60,24 +60,24 @@ const playSingleRound = () => {
 const game = () => {
   let playerScore = 0;
   let computerScore = 0;
-  
-  for (i = 0; i < 5; i++) {
+
+  for (let i = 0; i < 5; i++) {
     const result = playSingleRound();
     switch (result) {
       case Results.PLAYERWIN:
         playerScore++;
-        console.log("You won!");
+        console.log('You won!');
         break;
       case Results.PLAYERLOSE:
         computerScore++;
-        console.log("You lost!");
+        console.log('You lost!');
         break;
       default:
         console.log("It's a tie!");
         break;
     }
-    
-    let scoreMessage = `Player score: ${playerScore} Computer Score ${computerScore}`;
+
+    const scoreMessage = `Player score: ${playerScore} Computer Score ${computerScore}`;
     console.log(scoreMessage);
   }
   console.log();
@@ -86,10 +86,10 @@ const game = () => {
   } else if (playerScore === computerScore) {
     console.log("It's a tie!");
   } else {
-    console.log("YOu lost!");
+    console.log('You lost!');
   }
 }
 
 game();
 
-//const playRound = (playerSelection, computerSelection) =>
+// const playRound = (playerSelection, computerSelection) =>
