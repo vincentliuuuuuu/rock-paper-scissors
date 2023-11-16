@@ -4,8 +4,7 @@ const Choices = Object.freeze({
   SCISSORS: 2
 });
 
-const getComputerChoice = () => Math.floor(Math.random() * 3);
-
+// References to elements on DOM tree
 const rockButton = document.querySelector('.rock-btn');
 const paperButton = document.querySelector('.paper-btn');
 const scissorsButton = document.querySelector('.scissors-btn');
@@ -23,24 +22,29 @@ let currentRound = 1;
 let playerScore = 0;
 let computerScore = 0;
 
-rockButton.addEventListener('click', () => {
-  playSingleRound('rock');
-});
+function game () {
+  rockButton.addEventListener('click', () => {
+    playSingleRound('rock');
+  });
 
-paperButton.addEventListener('click', () => {
-  playSingleRound('paper');
-});
+  paperButton.addEventListener('click', () => {
+    playSingleRound('paper');
+  });
 
-scissorsButton.addEventListener('click', () => {
-  playSingleRound('scissors');
-});
+  scissorsButton.addEventListener('click', () => {
+    playSingleRound('scissors');
+  });
 
-resetButton.addEventListener('click', () => {
-  round.textContent = 'Round: 1';
-  result.textContent = '';
-  userScore.textContent = 'User Score: 0';
-  compScore.textContent = 'Computer Score: 0';
-});
+  resetButton.addEventListener('click', () => {
+    round.textContent = 'Round: 1';
+    result.textContent = '';
+    userScore.textContent = 'User Score: 0';
+    compScore.textContent = 'Computer Score: 0';
+  });
+}
+
+// Helper Functions
+const getComputerChoice = () => Math.floor(Math.random() * 3);
 
 const getPlayerChoice = (playerChoice) => {
   switch (playerChoice) {
@@ -111,3 +115,5 @@ const changeCompChoice = (computerSelection) => {
 
   compPic.textContent = textContent;
 };
+
+game();
